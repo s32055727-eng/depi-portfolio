@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohamed Abdulltif | Front-End Developer Portfolio</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" id="bootstrap-css"/>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    [dir="ltr"] .lang-switcher {
+      left: auto;
+      right: 20px;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      padding: 90px 0 70px;
+    }
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #0d6efd;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+    .badge-skill {
+      background-color: #0d6efd;
+      font-size: 1rem;
+      margin: 6px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      display: inline-block;
+      color: #fff;
+    }
+    .usp-box {
+      background-color: #eef2ff;
+      border-right: 4px solid #0d6efd;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    [dir="ltr"] .usp-box {
+      border-right: none;
+      border-left: 4px solid #0d6efd;
+    }
+    .social-btn {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Switcher Button -->
+  <div class="lang-switcher">
+    <button class="btn btn-primary shadow" id="lang-btn" onclick="toggleLanguage()">
+      <i class="fas fa-globe me-1"></i> English
+    </button>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Mohamed Abdulltif" class="profile-img mb-4"/>
+      <h1 class="display-4 fw-bold">Mohamed Abdulltif</h1>
+      <p class="lead text-info fs-3">Front-End Developer</p>
+      <p class="text-light opacity-75" id="hero-sub">طالب نظم معلومات بالمعهد العالي للهندسة وحاسبات وإدارة بالقاهرة</p>
+      <div class="mt-4">
+        <a href="#contact" class="btn btn-primary btn-lg me-2" id="btn-contact"><i class="fas fa-paper-plane me-2"></i>تواصل معي</a>
+        <a href="#studies" class="btn btn-outline-light btn-lg" id="btn-studies"><i class="fas fa-book-open me-2"></i>الدراسة والمهارات</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About & USP Section -->
+  <section class="py-5 bg-white" id="about">
+    <div class="container">
+      <h2 class="fw-bold mb-4 text-center" id="about-title">عني (About Me)</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <p class="fs-5 text-muted text-center mb-4" id="about-desc">
+            أنا محمد عبداللطيف، طالب نظم معلومات ومطور واجهات أمامي (Front-End Developer) ضمن مبادرة رواد مصر الرقمية (DEPI). شغوف بتحويل التصاميم والأفكار إلى صفحات حية ومتجاوبة باستخدام أحدث تقنيات الويب.
+          </p>
+          <div class="usp-box my-4">
+            <h5 class="fw-bold text-primary mb-3" id="usp-title"><i class="fas fa-star me-2"></i>الميزة التنافسية (USP Statement):</h5>
+            <p class="mb-0 fs-5" id="usp-text">"أساعد الشركات الناشئة وأصحاب الأعمال في بناء مواقع إلكترونية حديثة وسريعة ومتجاوبة مع الشاشات باستخدام HTML وCSS وBootstrap لتعزيز حضورهم الرقمي."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studies & Technologies Section -->
+  <section class="py-5 bg-light" id="studies">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-3" id="studies-title">الدراسات والتقنيات (Courses & Tech)</h2>
+      <p class="text-muted mb-4" id="studies-sub">التقنيات والمجالات التي قمت بدراستها وإتقانها:</p>
+      <div class="d-flex flex-wrap justify-content-center">
+        <span class="badge-skill"><i class="fab fa-html5 me-2"></i>1. HTML</span>
+        <span class="badge-skill"><i class="fab fa-css3-alt me-2"></i>2. CSS</span>
+        <span class="badge-skill"><i class="fab fa-bootstrap me-2"></i>3. Bootstrap</span>
+        <span class="badge-skill"><i class="fas fa-pencil-ruler me-2"></i>4. UI / UX</span>
+        <span class="badge-skill"><i class="fab fa-js me-2"></i>5. JavaScript</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <footer class="py-5 bg-dark text-white text-center" id="contact">
+    <div class="container">
+      <h2 class="fw-bold mb-3" id="contact-title">تواصل معي (Contact Me)</h2>
+      <p class="text-secondary mb-4" id="contact-sub">يمكنك التواصل معي مباشرة عبر وسائل التواصل التالية:</p>
+      
+      <!-- Contact Links -->
+      <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+        <!-- Phone / WhatsApp (Put your actual number in href) -->
+        <a href="https://wa.me/201141693521" target="_blank" class="btn btn-outline-success social-btn">
+          <i class="fab fa-whatsapp"></i> <span id="lbl-phone">01141693521</span>
+        </a>
+        <!-- LinkedIn (Put your LinkedIn URL in href) -->
+        <a href="https://www.linkedin.com/in/mohamed-abdullatif-609a80428" target="_blank" class="btn btn-outline-primary social-btn">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+     
+      </div>
+      <p class="small text-secondary mb-0"> Mohamed Abdulltif.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Translation Script -->
+  <script>
+    let currentLang = 'ar';
+
+    const translations = {
+      ar: {
+        dir: 'rtl',
+        btnLang: '<i class="fas fa-globe me-1"></i> English',
+        bootstrapCss: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css',
+        heroSub: 'طالب نظم معلومات بالمعهد العالي للهندسة وحاسبات وإدارة بالقاهرة',
+        btnContact: '<i class="fas fa-paper-plane me-2"></i>تواصل معي',
+        btnStudies: '<i class="fas fa-book-open me-2"></i>الدراسة والمهارات',
+        aboutTitle: 'عني (About Me)',
+        aboutDesc: 'أنا محمد عبداللطيف، طالب نظم معلومات ومطور واجهات أمامي (Front-End Developer) ضمن مبادرة رواد مصر الرقمية (DEPI). شغوف بتحويل التصاميم والأفكار إلى صفحات حية ومتجاوبة باستخدام أحدث تقنيات الويب.',
+        uspTitle: '<i class="fas fa-star me-2"></i>الميزة التنافسية (USP Statement):',
+        uspText: '"أساعد الشركات الناشئة وأصحاب الأعمال في بناء مواقع إلكترونية حديثة وسريعة ومتجاوبة مع الشاشات باستخدام HTML وCSS وBootstrap لتعزيز حضورهم الرقمي."',
+        studiesTitle: 'الدراسات والتقنيات (Courses & Tech)',
+        studiesSub: 'التقنيات والمجالات التي قمت بدراستها وإتقانها:',
+        contactTitle: 'تواصل معي (Contact Me)',
+        contactSub: 'يمكنك التواصل معي مباشرة عبر وسائل التواصل التالية:',
+        lblPhone: 'الهاتف / واتساب'
+      },
+      en: {
+        dir: 'ltr',
+        btnLang: '<i class="fas fa-globe me-1"></i> عربي',
+        bootstrapCss: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
+        heroSub: 'Information Systems Student at Cairo Higher Institute',
+        btnContact: '<i class="fas fa-paper-plane me-2"></i>Contact Me',
+        btnStudies: '<i class="fas fa-book-open me-2"></i>Studies & Skills',
+        aboutTitle: 'About Me',
+        aboutDesc: 'I am Mohamed Abdulltif, an Information Systems student and Front-End Developer participating in the Digital Egypt Pioneers Initiative (DEPI). Passionate about turning designs and ideas into responsive, live web pages using modern web technologies.',
+        uspTitle: '<i class="fas fa-star me-2"></i>Unique Selling Proposition (USP Statement):',
+        uspText: '"I help small businesses and startups build modern, fast, and responsive websites using HTML, CSS, and Bootstrap to boost their online presence."',
+        studiesTitle: 'Courses & Technologies Studied',
+        studiesSub: 'Technologies and areas I have studied and mastered:',
+        contactTitle: 'Contact Me',
+        contactSub: 'You can reach out to me directly via the following channels:',
+        lblPhone: 'Phone / WhatsApp'
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      const t = translations[currentLang];
+
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = t.dir;
+      document.getElementById('bootstrap-css').href = t.bootstrapCss;
+
+      document.getElementById('lang-btn').innerHTML = t.btnLang;
+      document.getElementById('hero-sub').innerText = t.heroSub;
+      document.getElementById('btn-contact').innerHTML = t.btnContact;
+      document.getElementById('btn-studies').innerHTML = t.btnStudies;
+      document.getElementById('about-title').innerText = t.aboutTitle;
+      document.getElementById('about-desc').innerText = t.aboutDesc;
+      document.getElementById('usp-title').innerHTML = t.uspTitle;
+      document.getElementById('usp-text').innerText = t.uspText;
+      document.getElementById('studies-title').innerText = t.studiesTitle;
+      document.getElementById('studies-sub').innerText = t.studiesSub;
+      document.getElementById('contact-title').innerText = t.contactTitle;
+      document.getElementById('contact-sub').innerText = t.contactSub;
+      document.getElementById('lbl-phone').innerText = t.lblPhone;
+    }
+  </script>
+</body>
+</html>
