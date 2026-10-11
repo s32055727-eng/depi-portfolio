@@ -1,214 +1,676 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohamed Abdulltif | Front-End Developer Portfolio</title>
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" id="bootstrap-css"/>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-    }
-    .lang-switcher {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-    }
-    [dir="ltr"] .lang-switcher {
-      left: auto;
-      right: 20px;
-    }
-    .hero-section {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #fff;
-      padding: 90px 0 70px;
-    }
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #0d6efd;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-    .badge-skill {
-      background-color: #0d6efd;
-      font-size: 1rem;
-      margin: 6px;
-      padding: 10px 18px;
-      border-radius: 20px;
-      display: inline-block;
-      color: #fff;
-    }
-    .usp-box {
-      background-color: #eef2ff;
-      border-right: 4px solid #0d6efd;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    [dir="ltr"] .usp-box {
-      border-right: none;
-      border-left: 4px solid #0d6efd;
-    }
-    .social-btn {
-      font-size: 1.2rem;
-      padding: 10px 20px;
-      border-radius: 30px;
-      margin: 5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Abdullatif (Tifa) | Front-End Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --accent-glow: rgba(168, 85, 247, 0.25);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --radius: 24px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(236, 72, 153, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* ===== Navbar ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover {
+            background: var(--accent-grad);
+            border-color: transparent;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* ===== Hero Bento Section ===== */
+        .hero {
+            padding: 160px 0 80px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-glow);
+        }
+
+        .badge {
+            background: rgba(168, 85, 247, 0.1);
+            color: #d8b4fe;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .hero-title span {
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .btn-glow {
+            background: var(--accent-grad);
+            color: #fff;
+            box-shadow: 0 10px 25px var(--accent-glow);
+            border: none;
+        }
+
+        .btn-glow:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.5);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #fff;
+        }
+
+        /* صورة البروفايل */
+        .profile-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .profile-img-container {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--card-border);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .profile-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== Sections General ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-header h3 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* ===== Path / About Box ===== */
+        .path-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+            position: relative;
+        }
+
+        .path-box i {
+            font-size: 3rem;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Skills Bento Grid ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-item:hover {
+            border-color: #a855f7;
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+
+        .skill-item i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* ===== Projects Grid ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            border-color: rgba(236, 72, 153, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(236, 72, 153, 0.2);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.08);
+        }
+
+        .project-info {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* ===== Footer & Contact ===== */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 80px 0 40px;
+            background: rgba(3, 7, 18, 0.95);
+            text-align: center;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            border: 1px solid var(--card-border);
+        }
+
+        .whatsapp { background: rgba(37, 211, 102, 0.1); border-color: rgba(37, 211, 102, 0.3); }
+        .whatsapp:hover { background: #25d366; box-shadow: 0 0 25px rgba(37, 211, 102, 0.5); }
+
+        .linkedin { background: rgba(10, 102, 194, 0.1); border-color: rgba(10, 102, 194, 0.3); }
+        .linkedin:hover { background: #0a66c2; box-shadow: 0 0 25px rgba(10, 102, 194, 0.5); }
+
+        .telegram { background: rgba(34, 158, 217, 0.1); border-color: rgba(34, 158, 217, 0.3); }
+        .telegram:hover { background: #229ed9; box-shadow: 0 0 25px rgba(34, 158, 217, 0.5); }
+
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Language Switcher Button -->
-  <div class="lang-switcher">
-    <button class="btn btn-primary shadow" id="lang-btn" onclick="toggleLanguage()">
-      <i class="fas fa-globe me-1"></i> English
-    </button>
-  </div>
-
-  <!-- Hero Section -->
-  <header class="hero-section text-center">
-    <div class="container">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Mohamed Abdulltif" class="profile-img mb-4"/>
-      <h1 class="display-4 fw-bold">Mohamed Abdulltif</h1>
-      <p class="lead text-info fs-3">Front-End Developer</p>
-      <p class="text-light opacity-75" id="hero-sub">طالب نظم معلومات بالمعهد العالي للهندسة وحاسبات وإدارة بالقاهرة</p>
-      <div class="mt-4">
-        <a href="#contact" class="btn btn-primary btn-lg me-2" id="btn-contact"><i class="fas fa-paper-plane me-2"></i>تواصل معي</a>
-        <a href="#studies" class="btn btn-outline-light btn-lg" id="btn-studies"><i class="fas fa-book-open me-2"></i>الدراسة والمهارات</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- About & USP Section -->
-  <section class="py-5 bg-white" id="about">
-    <div class="container">
-      <h2 class="fw-bold mb-4 text-center" id="about-title">عني (About Me)</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-9">
-          <p class="fs-5 text-muted text-center mb-4" id="about-desc">
-            أنا محمد عبداللطيف، طالب نظم معلومات ومطور واجهات أمامي (Front-End Developer) ضمن مبادرة رواد مصر الرقمية (DEPI). شغوف بتحويل التصاميم والأفكار إلى صفحات حية ومتجاوبة باستخدام أحدث تقنيات الويب.
-          </p>
-          <div class="usp-box my-4">
-            <h5 class="fw-bold text-primary mb-3" id="usp-title"><i class="fas fa-star me-2"></i>الميزة التنافسية (USP Statement):</h5>
-            <p class="mb-0 fs-5" id="usp-text">"أساعد الشركات الناشئة وأصحاب الأعمال في بناء مواقع إلكترونية حديثة وسريعة ومتجاوبة مع الشاشات باستخدام HTML وCSS وBootstrap لتعزيز حضورهم الرقمي."</p>
-          </div>
+    <!-- Navbar -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">تيفاا <span></span></a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#about" data-ar="عنّي" data-en="About">عنّي</a></li>
+                    <li><a href="#path" data-ar="المسار" data-en="Path">المسار</a></li>
+                    <li><a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a></li>
+                    <li><a href="#projects" data-ar="المشاريع" data-en="Projects">المشاريع</a></li>
+                </ul>
+                <button class="lang-btn" id="langToggle">
+                    <i class="fas fa-globe"></i> <span id="langText">English</span>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Studies & Technologies Section -->
-  <section class="py-5 bg-light" id="studies">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-3" id="studies-title">الدراسات والتقنيات (Courses & Tech)</h2>
-      <p class="text-muted mb-4" id="studies-sub">التقنيات والمجالات التي قمت بدراستها وإتقانها:</p>
-      <div class="d-flex flex-wrap justify-content-center">
-        <span class="badge-skill"><i class="fab fa-html5 me-2"></i>1. HTML</span>
-        <span class="badge-skill"><i class="fab fa-css3-alt me-2"></i>2. CSS</span>
-        <span class="badge-skill"><i class="fab fa-bootstrap me-2"></i>3. Bootstrap</span>
-        <span class="badge-skill"><i class="fas fa-pencil-ruler me-2"></i>4. UI / UX</span>
-        <span class="badge-skill"><i class="fab fa-js me-2"></i>5. JavaScript</span>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Bento Section -->
+    <section class="container hero" id="about">
+        <div class="bento-grid">
+            <div class="bento-card">
+                <span class="badge" data-ar="⚡ فرونت اند ديفلوبر" data-en="⚡ FRONT-END DEVELOPER">⚡ فرونت اند ديفلوبر</span>
+                
+                <!-- اسمك فوق (محمد عبد اللطيف فقط) -->
+                <h1 class="hero-title" data-ar="محمد عبد اللطيف" data-en="Mohamed Abdullatif">محمد عبد اللطيف</h1>
+                
+                <p class="hero-desc" 
+                   data-ar="طالب نظم ومعلومات ومطور واجهات أمامية شغوف بابتكار تجارب ويب رقمية استثنائية، بتصميمات عصرية حديثة، سرعة فائقة، وتجاوب كامل مع كافة الأجهزة."
+                   data-en="Information Systems student and Front-End Developer passionate about crafting exceptional digital web experiences with cutting-edge UI design and flawless responsiveness.">
+                   طالب نظم ومعلومات ومطور واجهات أمامية شغوف بابتكار تجارب ويب رقمية استثنائية، بتصميمات عصرية حديثة، سرعة فائقة، وتجاوب كامل مع كافة الأجهزة.
+                </p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-glow" data-ar="استكشف أعمالي" data-en="Explore Work"><i class="fas fa-rocket"></i> استكشف أعمالي</a>
+                    <a href="#" class="btn btn-glass" data-ar="تحميل الـ CV" data-en="Download CV"><i class="fas fa-file-arrow-down"></i> تحميل الـ CV</a>
+                </div>
+            </div>
 
-  <!-- Contact Section -->
-  <footer class="py-5 bg-dark text-white text-center" id="contact">
-    <div class="container">
-      <h2 class="fw-bold mb-3" id="contact-title">تواصل معي (Contact Me)</h2>
-      <p class="text-secondary mb-4" id="contact-sub">يمكنك التواصل معي مباشرة عبر وسائل التواصل التالية:</p>
-      
-      <!-- Contact Links -->
-      <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-        <!-- Phone / WhatsApp (Put your actual number in href) -->
-        <a href="https://wa.me/201141693521" target="_blank" class="btn btn-outline-success social-btn">
-          <i class="fab fa-whatsapp"></i> <span id="lbl-phone">01141693521</span>
-        </a>
-        <!-- LinkedIn (Put your LinkedIn URL in href) -->
-        <a href="https://www.linkedin.com/in/mohamed-abdullatif-609a80428" target="_blank" class="btn btn-outline-primary social-btn">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-     
-      </div>
-      <p class="small text-secondary mb-0"> Mohamed Abdulltif.</p>
-    </div>
-  </footer>
+            <div class="bento-card profile-card">
+                <div class="profile-img-container">
+                    <img src="profile.jpg" alt="محمد عبد اللطيف" onerror="this.src='https://via.placeholder.com/350x400/111827/a855f7?text=TIFA+DEV'">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- JavaScript Translation Script -->
-  <script>
-    let currentLang = 'ar';
+    <!-- Path Section -->
+    <section class="container" id="path">
+        <div class="path-box">
+            <i class="fas fa-code"></i>
+            <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;" data-ar="المسار والهدف التقني" data-en="My Technical Path">المسار والهدف التقني</h3>
+            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;"
+               data-ar="متخصص في بناء واجهات مستخدم تفاعلية باستخدام أحدث تقنيات الفرونت إند. أهتم بكتابة كود نظيف، منظم (Clean Code)، ومرن لضمان أداء عالي وتجربة مستخدم مذهلة."
+               data-en="Specialized in building interactive user interfaces using modern front-end technologies. Focused on writing clean, modular code to ensure high performance and stunning UX.">
+               متخصص في بناء واجهات مستخدم تفاعلية باستخدام أحدث تقنيات الفرونت إند. أهتم بكتابة كود نظيف ومنظم لضمان أداء عالي وتجربة مستخدم مذهلة.
+            </p>
+        </div>
+    </section>
 
-    const translations = {
-      ar: {
-        dir: 'rtl',
-        btnLang: '<i class="fas fa-globe me-1"></i> English',
-        bootstrapCss: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css',
-        heroSub: 'طالب نظم معلومات بالمعهد العالي للهندسة وحاسبات وإدارة بالقاهرة',
-        btnContact: '<i class="fas fa-paper-plane me-2"></i>تواصل معي',
-        btnStudies: '<i class="fas fa-book-open me-2"></i>الدراسة والمهارات',
-        aboutTitle: 'عني (About Me)',
-        aboutDesc: 'أنا محمد عبداللطيف، طالب نظم معلومات ومطور واجهات أمامي (Front-End Developer) ضمن مبادرة رواد مصر الرقمية (DEPI). شغوف بتحويل التصاميم والأفكار إلى صفحات حية ومتجاوبة باستخدام أحدث تقنيات الويب.',
-        uspTitle: '<i class="fas fa-star me-2"></i>الميزة التنافسية (USP Statement):',
-        uspText: '"أساعد الشركات الناشئة وأصحاب الأعمال في بناء مواقع إلكترونية حديثة وسريعة ومتجاوبة مع الشاشات باستخدام HTML وCSS وBootstrap لتعزيز حضورهم الرقمي."',
-        studiesTitle: 'الدراسات والتقنيات (Courses & Tech)',
-        studiesSub: 'التقنيات والمجالات التي قمت بدراستها وإتقانها:',
-        contactTitle: 'تواصل معي (Contact Me)',
-        contactSub: 'يمكنك التواصل معي مباشرة عبر وسائل التواصل التالية:',
-        lblPhone: 'الهاتف / واتساب'
-      },
-      en: {
-        dir: 'ltr',
-        btnLang: '<i class="fas fa-globe me-1"></i> عربي',
-        bootstrapCss: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
-        heroSub: 'Information Systems Student at Cairo Higher Institute',
-        btnContact: '<i class="fas fa-paper-plane me-2"></i>Contact Me',
-        btnStudies: '<i class="fas fa-book-open me-2"></i>Studies & Skills',
-        aboutTitle: 'About Me',
-        aboutDesc: 'I am Mohamed Abdulltif, an Information Systems student and Front-End Developer participating in the Digital Egypt Pioneers Initiative (DEPI). Passionate about turning designs and ideas into responsive, live web pages using modern web technologies.',
-        uspTitle: '<i class="fas fa-star me-2"></i>Unique Selling Proposition (USP Statement):',
-        uspText: '"I help small businesses and startups build modern, fast, and responsive websites using HTML, CSS, and Bootstrap to boost their online presence."',
-        studiesTitle: 'Courses & Technologies Studied',
-        studiesSub: 'Technologies and areas I have studied and mastered:',
-        contactTitle: 'Contact Me',
-        contactSub: 'You can reach out to me directly via the following channels:',
-        lblPhone: 'Phone / WhatsApp'
-      }
-    };
+    <!-- Skills Section -->
+    <section class="container" id="skills">
+        <div class="section-header">
+            <h3 data-ar="المهارات والأدوات" data-en="Skills & Tech Stack">المهارات والأدوات</h3>
+            <p data-ar="التقنيات الأساسية التي أعتمد عليها في تطوير التطبيقات والويب" data-en="Core technologies I use to build modern web applications">التقنيات الأساسية التي أعتمد عليها في تطوير التطبيقات والويب</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fab fa-html5"></i>
+                <h4>HTML5</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-css3-alt"></i>
+                <h4>CSS3</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-js"></i>
+                <h4>JavaScript</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <h4>TypeScript</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-bootstrap"></i>
+                <h4>Bootstrap 5</h4>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-react"></i>
+                <h4>React.js</h4>
+            </div>
+        </div>
+    </section>
 
-    function toggleLanguage() {
-      currentLang = currentLang === 'ar' ? 'en' : 'ar';
-      const t = translations[currentLang];
+    <!-- Projects Section -->
+    <section class="container" id="projects">
+        <div class="section-header">
+            <h3 data-ar="أبرز المشاريع المميزة" data-en="Featured Projects">أبرز المشاريع المميزة</h3>
+            <p data-ar="أعمال واجهات ويب قمت بتطويرها بالكامل" data-en="Front-end projects crafted with precision and passion">أعمال واجهات ويب قمت بتطويرها بالكامل</p>
+        </div>
+        <div class="projects-grid">
+            
+            <!-- BMW -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="images/bmw.jpg" alt="BMW Showroom" onerror="this.src='https://via.placeholder.com/400x220/111827/6366f1?text=BMW+Showroom'">
+                </div>
+                <div class="project-info">
+                    <h4 class="project-title" data-ar="معرض سيارات BMW الفاخرة" data-en="BMW Showroom">معرض سيارات BMW الفاخرة</h4>
+                    <p class="project-desc" 
+                       data-ar="منصة استعراضية فخمة لعرض موديلات سيارات BMW بتصميم مظلم وتنسيقات متقدمة تناسب الهواتف والشاشات الكبيرة."
+                       data-en="A luxurious showcase platform for modern BMW models featuring sleek dark aesthetics and full responsiveness.">
+                       منصة استعراضية فخمة لعرض موديلات سيارات BMW بتصميم مظلم وتنسيقات متقدمة تناسب الهواتف والشاشات الكبيرة.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                    </div>
+                </div>
+            </div>
 
-      document.documentElement.lang = currentLang;
-      document.documentElement.dir = t.dir;
-      document.getElementById('bootstrap-css').href = t.bootstrapCss;
+            <!-- Dental -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="images/dental.jpg" alt="Dental Clinic" onerror="this.src='https://via.placeholder.com/400x220/111827/a855f7?text=Dental+Clinic'">
+                </div>
+                <div class="project-info">
+                    <h4 class="project-title" data-ar="موقع عيادة طب الأسنان" data-en="Dental Clinic Platform">موقع عيادة طب الأسنان</h4>
+                    <p class="project-desc" 
+                       data-ar="واجهة طبية متكاملة لعيادة أسنان تعرض الخدمات الطبية وأوقات العمل، مصممة بألوان مريحة لسهولة تواصل المرضى وحجز المواعيد."
+                       data-en="A comprehensive medical layout for a dental clinic displaying services and working hours with smooth patient booking flows.">
+                       واجهة طبية متكاملة لعيادة أسنان تعرض الخدمات الطبية وأوقات العمل، مصممة بألوان مريحة لسهولة تواصل المرضى وحجز المواعيد.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
 
-      document.getElementById('lang-btn').innerHTML = t.btnLang;
-      document.getElementById('hero-sub').innerText = t.heroSub;
-      document.getElementById('btn-contact').innerHTML = t.btnContact;
-      document.getElementById('btn-studies').innerHTML = t.btnStudies;
-      document.getElementById('about-title').innerText = t.aboutTitle;
-      document.getElementById('about-desc').innerText = t.aboutDesc;
-      document.getElementById('usp-title').innerHTML = t.uspTitle;
-      document.getElementById('usp-text').innerText = t.uspText;
-      document.getElementById('studies-title').innerText = t.studiesTitle;
-      document.getElementById('studies-sub').innerText = t.studiesSub;
-      document.getElementById('contact-title').innerText = t.contactTitle;
-      document.getElementById('contact-sub').innerText = t.contactSub;
-      document.getElementById('lbl-phone').innerText = t.lblPhone;
-    }
-  </script>
+            <!-- Color Palette -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="images/colors.jpg" alt="Color Palette" onerror="this.src='https://via.placeholder.com/400x220/111827/ec4899?text=Color+Palette'">
+                </div>
+                <div class="project-info">
+                    <h4 class="project-title" data-ar="أداة استكشاف الألوان" data-en="Color Palette Tool">أداة استكشاف الألوان</h4>
+                    <p class="project-desc" 
+                       data-ar="تطبيق واجهة ويب مخصص لاستعراض درجات وأكواد الألوان المختلفة لمساعدة المطورين والمصممين في اختيار الألوان بسهولة."
+                       data-en="A specialized web utility to explore color shades and HEX codes effortlessly for web developers and designers.">
+                       تطبيق واجهة ويب مخصص لاستعراض درجات وأكواد الألوان المختلفة لمساعدة المطورين والمصممين في اختيار الألوان بسهولة.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer>
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 30px;">
+                <h3 data-ar="لنعمل معاً!" data-en="Let's Work Together!">لنعمل معاً!</h3>
+                <p data-ar="تواصل معي مباشرة عبر القنوات التالية" data-en="Reach out to me directly through my channels">تواصل معي مباشرة عبر القنوات التالية</p>
+            </div>
+            <div class="social-container">
+                <a href="https://wa.me/201141693521" target="_blank" class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/in/mohamed-abdullatif-609a80428?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="social-btn linkedin">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://t.me/mohmed_Abdulltif" target="_blank" class="social-btn telegram">
+                    <i class="fab fa-telegram-plane"></i> Telegram
+                </a>
+            </div>
+            
+            <!-- اسمك تحت في الفوتر (Tifa فقط) -->
+            <p style="color: var(--text-muted); font-size: 0.95rem;" data-ar="Tifa" data-en="© 2026 Developed by Tifa">Tifa</p>
+        </div>
+    </footer>
+
+    <!-- JS المعدل عشان يعرض النصوص والأكواد صح -->
+    <script>
+        const langToggle = document.getElementById('langToggle');
+        const langText = document.getElementById('langText');
+        let currentLang = 'ar';
+
+        langToggle.addEventListener('click', () => {
+            if (currentLang === 'ar') {
+                currentLang = 'en';
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                langText.textContent = 'عربي';
+            } else {
+                currentLang = 'ar';
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                langText.textContent = 'English';
+            }
+
+            const translatableElements = document.querySelectorAll('[data-ar][data-en]');
+            translatableElements.forEach(el => {
+                el.innerHTML = el.getAttribute(`data-${currentLang}`);
+            });
+        });
+    </script>
 </body>
 </html>
